@@ -6,7 +6,7 @@ const {
 } = require("../utils/risk.engine");
 
 const fetchTodayNEOs = async (req, res) => {
-  console.log("🔥 FEED CONTROLLER HIT");
+  console.log("FEED CONTROLLER HIT");
   try {
     const data = await nasaService.getTodayNEOs();
     const date = Object.keys(data.near_earth_objects)[0];
@@ -31,7 +31,7 @@ enriched.sort((a, b) => b.riskScore - a.riskScore);
 };
 
 const fetchAsteroidById = async (req, res) => {
-  console.log("🚨 ID CONTROLLER HIT:", req.params.id);
+  console.log("ID CONTROLLER HIT:", req.params.id);
   try {
     const neo = await nasaService.getAsteroidById(req.params.id);
     const score = calculateRiskScore(neo);
